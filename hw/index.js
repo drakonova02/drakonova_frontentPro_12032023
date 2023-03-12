@@ -4,12 +4,14 @@ import {renderInput, renderWelcomeMessage} from "./render.js"
 const nameCustomer = localStorage.getItem('nameCustomer');
 
 function clickButton() {
-    const nameCustomer = document.querySelector('input').value;
+    const inputName = document.querySelector('input');
+    const nameCustomer = inputName.value;
 
     if(validName(nameCustomer)) {
         localStorage.setItem('nameCustomer', nameCustomer);
         renderWelcomeMessage(nameCustomer);
     } else {
+        inputName.value = '';
         alert('Please, input name');
     }
 }
